@@ -140,12 +140,13 @@ a:focus-visible {
 .nav a.active { background: var(--pink-2); }
 
 .menu-toggle {
-  display: none;
+  display: none;              /* на десктопе скрыта, на мобильном, видимо, переопределяется */
   border: 0;
   background: var(--pink-2);
   border-radius: 50%;
   width: 42px;
   height: 42px;
+  color: #000;                /* ← вот это добавьте, цвет полосок */
 }
 
 /* Соцсети */
