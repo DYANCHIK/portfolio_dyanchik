@@ -146,7 +146,7 @@ a:focus-visible {
   border-radius: 50%;
   width: 42px;
   height: 42px;
-  color: #000;                /* ← вот это добавьте, цвет полосок */
+  color: #000 !important;                /* ← вот это добавьте, цвет полосок */
 }
 
 /* Соцсети */
@@ -1029,5 +1029,58 @@ h1 {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: .01ms !important;
+  }
+}
+/* Применяем стили ТОЛЬКО для экранов шириной до 768px (телефоны и планшеты) */
+@media (max-width: 768px) {
+
+  /* 1. Делаем шапку гибкой и выравниваем элементы */
+  header { /* Укажите ваш класс шапки, если он отличается, например .header или .navbar */
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку, если не влезают */
+    align-items: center;
+    justify-content: space-between; /* Раскидываем логотип влево, остальное вправо */
+    gap: 10px; /* Отступы между элементами */
+    padding: 10px 15px;
+  }
+
+  /* 2. Убираем наезжание кнопки на текст */
+  /* Убеждаемся, что блок с логотипом и текстом не слишком широкий */
+  .logo-container { /* Укажите класс вашего блока с логотипом и текстом */
+    flex: 1 1 auto;
+    max-width: 50%; /* Ограничиваем ширину, чтобы кнопка не налезала */
+  }
+
+  /* 3. Красим полоски в черный (или ваш цвет) */
+  .menu-toggle {
+    display: flex; /* Или block, как у вас было */
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Запрещаем кнопке сжиматься */
+  }
+  
+  .menu-toggle svg, 
+  .menu-toggle i,
+  .menu-toggle span {
+    color: #000 !important;
+    fill: #000 !important;
+    stroke: #000 !important;
+    font-size: 20px; /* Размер иконки */
+  }
+
+  /* 4. Уменьшаем иконки соцсетей */
+  .social-links { /* Укажите класс контейнера с иконками соцсетей */
+    display: flex;
+    gap: 8px; /* Расстояние между иконками */
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .social-links a,
+  .social-links img,
+  .social-links svg {
+    width: 32px !important; /* Уменьшаем размер */
+    height: 32px !important;
+    object-fit: contain;
   }
 }
